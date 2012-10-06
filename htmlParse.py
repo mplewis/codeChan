@@ -1,5 +1,6 @@
 from HTMLParser import HTMLParser
 import urllib2
+import sys
 
 # parses the html from a 4chan board index (http(s)://boards.4chan.org/board/[1-10])
 # and returns a list of the threads on that page, in order
@@ -51,6 +52,5 @@ def fetchBoardThreads(boardAbbr):
 		boardHtmlData = urllib2.urlopen(boardUrl).read()
 	except urllib2.HTTPError as currError:
 		print "Error accessing board /" + boardAbbr + "/: " + str(currError)
-		sys.exit()
 	boardParser.feed(boardHtmlData)
 	return boardParser.getThreadList()
