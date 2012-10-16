@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
+</head>
+<body>
+	from codeChan import ChanIndex, ChanThread<br />
+	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br /><br />
+	{% for thread in indexData %}
+		{% if thread[0][1] is defined %}
+			{{ boardAbbr }}[{{ thread[0][0] }}]['op']['subj'] = "{{ thread[0][1] }}"<br />
+		{% endif %}
+		{% if thread[0][3] is defined %}
+			{{ boardAbbr }}[{{ thread[0][0] }}]['op']['image'] = """<a href="{{ thread[0][3] }}">{{ thread[0][3] }}</a>"""<br />
+		{% endif %}
+		{{ boardAbbr }}[{{ thread[0][0] }}]['op'] = """{{ thread[0][4] }}"""<br />
+		with {{ boardAbbr }}[{{ thread[0][0] }}]['op'] as op:
+		{% for post in thread[1:] %}
+		<div class="indent">
+			{% if post[3] is defined %}
+				op['image'][{{ post[0] }}] = """<a href="{{ post[3] }}">{{ post[3] }}</a>"""<br />
+			{% endif %}
+			op['reply'][{{ post[0] }}] = """{{ post[4] }}"""<br />
+		</div>
+		{% endfor %}
+		{% if thread[0][5] is defined %}
+			{{ boardAbbr }}[{{ thread[0][0] }}]['replies_omitted'] = {{ thread[0][5] }}<br />
+		{% endif %}
+		{% if thread[0][6] is defined %}
+			{{ boardAbbr }}[{{ thread[0][0] }}]['images_omitted'] = {{ thread[0][6] }}<br />
+		{% endif %}
+		<br />
+	{% endfor %}
+</body>
+</html>
