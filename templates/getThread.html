@@ -9,7 +9,13 @@
 	from codeChan import ChanIndex, ChanThread<br />
 	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br />
 	thread = ChanThread({{ threadData[0][0] }})<br /><br />
-	thread.addOp({% if threadData[0][1] is defined %}subj="{{ threadData[0][1] }}" {% endif %}time='{{ threadData[0][2] }}', image='<a href="{{ threadData[0][3] }}">{{ threadData[0][3] }}</a>', text=\<br>
-	<div class="indent">"""{{ threadData[0][4] }}""")</div>
+	thread.addOp({% if threadData[0][1] is defined %}subj="{{ threadData[0][1] }}" {% endif %}time='{{ threadData[0][2] }}', image='<a href="{{ threadData[0][3] }}">{{ threadData[0][3] }}</a>', text=\<br />
+	<div class="indent">
+		"""{{ threadData[0][4] }}""")
+	</div><br />
+	{% for post in threadData[1:] %}
+	thread.addPost(post=<a name="{{ post[0] }}" href="#{{ post[0] }}">{{ post[0] }}</a>, {% if post[1] is defined %}subj="{{ post[1] }}" {% endif %}time='{{ post[2] }}', text=\<br />
+	<div class="indent">"""{{ post[4] }}""")</div><br />
+	{% endfor %}
 </body>
 </html>

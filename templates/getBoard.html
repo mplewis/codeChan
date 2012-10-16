@@ -6,17 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
 </head>
 <body>
-	from codeChan import ChanIndex, ChanThread<br />
+	from codeChan import ChanIndex<br />
 	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br /><br />
 	{% for thread in indexData %}
 		{% if thread[0][1] is defined %}
-			{{ boardAbbr }}[{{ thread[0][0] }}]['op']['subj'] = "{{ thread[0][1] }}"<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['subj'] = '{{ thread[0][1] }}'<br />
 		{% endif %}
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['time'] = '{{ thread[0][2] }}'<br />
 		{% if thread[0][3] is defined %}
-			{{ boardAbbr }}[{{ thread[0][0] }}]['op']['image'] = """<a href="{{ thread[0][3] }}">{{ thread[0][3] }}</a>"""<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['image'] = '<a href="{{ thread[0][3] }}">{{ thread[0][3] }}</a>'<br />
 		{% endif %}
-		{{ boardAbbr }}[{{ thread[0][0] }}]['op'] = """{{ thread[0][4] }}"""<br />
-		with {{ boardAbbr }}[{{ thread[0][0] }}]['op'] as op:
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op'] = """{{ thread[0][4] }}"""<br />
+		with {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op'] as op:
 		{% for post in thread[1:] %}
 		<div class="indent">
 			{% if post[3] is defined %}
@@ -26,10 +27,10 @@
 		</div>
 		{% endfor %}
 		{% if thread[0][5] is defined %}
-			{{ boardAbbr }}[{{ thread[0][0] }}]['replies_omitted'] = {{ thread[0][5] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['replies_omitted'] = {{ thread[0][5] }}<br />
 		{% endif %}
 		{% if thread[0][6] is defined %}
-			{{ boardAbbr }}[{{ thread[0][0] }}]['images_omitted'] = {{ thread[0][6] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['images_omitted'] = {{ thread[0][6] }}<br />
 		{% endif %}
 		<br />
 	{% endfor %}
