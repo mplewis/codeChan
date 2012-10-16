@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
+</head>
+<body>
+	from codeChan import ChanIndex, ChanThread<br />
+	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br />
+	thread = ChanThread({{ threadData[0][0] }})<br /><br />
+	thread.addOp({% if threadData[0][1] is defined %}subj="{{ threadData[0][1] }}" {% endif %}time='{{ threadData[0][2] }}', image='<a href="{{ threadData[0][3] }}">{{ threadData[0][3] }}</a>', text=\<br>
+	<div class="indent">"""{{ threadData[0][4] }}""")</div>
+</body>
+</html>
