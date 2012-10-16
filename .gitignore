@@ -23,8 +23,12 @@ pip-log.txt
 #Translations
 *.mo
 
-#Mr Developer
+# Mr Developer
 .mr.developer.cfg
 
-#Sublime Text 2
+# Sublime Text 2
 *.sublime-*
+
+# test files
+thread.json
+threadOD.dat

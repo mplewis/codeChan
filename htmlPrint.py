@@ -20,6 +20,15 @@ def cleanCommentData(comment):
 	"""
 	return comment
 
+def tagWrap(text, tag, tagClass = ""):
+	if tagClass == "":
+		openTag = "<" + tag + ">"
+	else:
+		openTag = "<" + tag + ' class="' + tagClass + '">'
+	closeTag = "</" + tag + ">"
+	wrapped = openTag + text + closeTag
+	return wrapped
+
 # takes in an OrderedDict of complete threads
 # formats and prints the first post from each thread
 # the order threads are printed depends on the order of the thread numbers in threadNumList
@@ -36,10 +45,26 @@ def printIndex(threadCollection):
 # takes in an OrderedDict of thread data
 # returns a string of css'd and properly-formatted html data representing a thread
 def processThreadToHtml(thread):
-	threadHtml = ""
+	import pickle
+	pickledData = open('threadOD.dat', 'r')
+	thread = pickle.load(pickledData)
+	boardAbbr = 'g'
+	#threadNum = thread.items()[0]
+	threadNumReplies = len(thread.items())
+	#html = 'class ChanThread ("/' + boardAbbr + '/' + threadNum + '"):<br />'
+	html = 'class ChanThread ("/' + boardAbbr + '/"):<br />'
 	for postNum in thread:
+		threadHeader = "New Thread"
+		threadHtml = ""
 		postData = thread[postNum]
 		postText = postData["postText"]
-		threadHtml += '<div><span class="keyword">Thread: ' + str(postNum) + '</span><br />'
-		threadHtml += '<div class="indent">' + str(postText) + '</div></div><br /><br />'
-	return threadHtml
+		postImgUrl = postData["imageUrl"]
+		print postText
+		threadHtml += postText
+		threadHtml += "<br />"
+		print postImgUrl
+		threadHtml += postImgUrl
+		threadHtml = tagWrap(threadHtml, div, tagClass = "indent")
+		html = threadHeader + threadHtml
+	html = tagWrap(html, div)
+	return html
