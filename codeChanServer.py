@@ -36,4 +36,4 @@ def selectThread(board, threadNum):
 	return flask.render_template('getThread.html', boardAbbr = board, threadData = processedThread)
 
 if __name__ == '__main__':
-	app.run(host = '0.0.0.0')
+	app.run(host = '0.0.0.0', port = 9001)
