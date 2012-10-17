@@ -7,9 +7,11 @@ import urllib2
 app = flask.Flask(__name__)
 app.debug = True
 
+boardList = [['a', 'b', 'c', 'd', 'e', 'f', 'g', 'gif', 'h', 'hr', 'k', 'm', 'o', 'p', 'r', 's', 't', 'u', 'v', 'vg', 'w', 'wg'], ['i', 'ic'], ['r9k'], ['cm', 'hm', 'y'], ['3', 'adv', 'an', 'cgl', 'ck', 'co', 'diy', 'fa', 'fit', 'hc', 'int', 'jp', 'lit', 'mlp', 'mu', 'n', 'po', 'pol', 'sci', 'soc', 'sp', 'tg', 'toy', 'trv', 'tv', 'vp', 'wsg', 'x']]
+
 @app.route('/')
 def index():
-	return flask.render_template('index.html')
+	return flask.render_template('index.html', boards = boardList)
 
 @app.route('/<board>/')
 def selectBoard(board):
