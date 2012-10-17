@@ -7,7 +7,7 @@ import urllib2
 app = flask.Flask(__name__)
 app.debug = True
 
-boardList = [['a', 'b', 'c', 'd', 'e', 'f', 'g', 'gif', 'h', 'hr', 'k', 'm', 'o', 'p', 'r', 's', 't', 'u', 'v', 'vg', 'w', 'wg'], ['i', 'ic'], ['r9k'], ['cm', 'hm', 'y'], ['3', 'adv', 'an', 'cgl', 'ck', 'co', 'diy', 'fa', 'fit', 'hc', 'int', 'jp', 'lit', 'mlp', 'mu', 'n', 'po', 'pol', 'sci', 'soc', 'sp', 'tg', 'toy', 'trv', 'tv', 'vp', 'wsg', 'x']]
+boardList = [['a', 'c', 'w', 'm', 'cgl', 'cm', 'f', 'n', 'jp', 'vp'], ['v', 'vg', 'co', 'g', 'tv', 'k', 'o', 'an', 'tg', 'sp', 'sci', 'int'], ['i', 'po', 'p', 'ck', 'ic', 'wg', 'mu', 'fa', 'toy', '3', 'diy', 'wsg'], ['s', 'hc', 'hm', 'h', 'e', 'u', 'd', 'y', 't', 'hr', 'gif'], ['q', 'trv', 'fit', 'x', 'lit', 'adv', 'mlp'], ['b', 'r', 'r9k', 'pol', 'soc']]
 
 @app.route('/')
 def index():

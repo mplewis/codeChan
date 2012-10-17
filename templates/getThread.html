@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/codeChan.css" media="all">
 </head>
 <body>
-	<span class="keyword">from</span> <span class="namespace">codeChan</span> <span class="keyword">import</span> ChanIndex, ChanThread<br />
+	<span class="keyword">from</span> <a href="/" class="namespace">codeChan</a> <span class="keyword">import</span> ChanIndex, ChanThread<br />
 	{{ boardAbbr }} = ChanIndex(<a href="../" class="string">'{{ boardAbbr }}'</a>)<br />
 	thread = ChanThread(<span class="number">{{ threadData[0][0] }}</span>)<br /><br />
 	thread.addOp({% if threadData[0][1] is defined %}subj=<span class="string">'{{ threadData[0][1] }}'</span>
@@ -31,6 +31,6 @@
 	text=<span class="escapechar">\</span><br />
 	<div class="indent"><span class="longstring">"""{{ post[4] }}"""</span>)</div><br />
 	{% endfor %}
-	<br /><a href="../" class="keyword">return <span class="string">'{{ boardAbbr }}'</span></a><br /><br />
+	<br /><a href="../" class="keyword">return <span class="string">'/{{ boardAbbr }}/'</span></a><br /><br />
 </body>
 </html>

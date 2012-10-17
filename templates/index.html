@@ -3,9 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/static/codeChan.css" media="all">
 </head>
 <body>
-	<span class="keyword">from</span> <span class="namespace">codeChan</span> <span class="keyword">import</span> ChanSelect<br />
+	<span class="keyword">from</span> <a href="/" class="namespace">codeChan</a> <span class="keyword">import</span> ChanSelect<br />
+	boards = chanSelect.BoardList()<br />
+	<br />
+	boards[<span class="string">'Japanese Culture'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">
+		[{% for board in boards[0][0:9] %}<a href="/{{ board }}/" class="string"><a href="/{{ board }}/" class="string">'/{{ board }}/'</a></a>, {% endfor %}
+		<a href="/{{ boards[0][9] }}/" class="string">'/{{ boards[0][9] }}/'</a>]<br />
+	</div>
+	boards[<span class="string">'Interests'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">
+		[{% for board in boards[1][0:11] %}<a href="/{{ board }}/" class="string">'/{{ board }}/'</a>, {% endfor %}
+		<a href="/{{ boards[1][11] }}/" class="string">'/{{ boards[1][11] }}/'</a>]<br />
+	</div>
+	boards[<span class="string">'Creative'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">
+		[{% for board in boards[2][0:11] %}<a href="/{{ board }}/" class="string">'/{{ board }}/'</a>, {% endfor %}
+		<a href="/{{ boards[2][11] }}/" class="string">'/{{ boards[2][11] }}/'</a>]<br />
+	</div>
+	boards[<span class="string">'Adult'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">
+		[{% for board in boards[3][0:10] %}<a href="/{{ board }}/" class="string">'/{{ board }}/'</a>, {% endfor %}
+		<a href="/{{ boards[3][10] }}/" class="string">'/{{ boards[3][10] }}/'</a>]<br />
+	</div>
+	boards[<span class="string">'Other'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">
+		[{% for board in boards[4][0:6] %}<a href="/{{ board }}/" class="string">'/{{ board }}/'</a>, {% endfor %}
+		<a href="/{{ boards[4][6] }}/" class="string">'/{{ boards[4][6] }}/'</a>]<br />
+	</div>
+	boards[<span class="string">'Misc'</span>] =<span class="escapechar">\</span><br />
+	<div class="indent">[{% for board in boards[5][0:4] %}<a href="/{{ board }}/" class="string">'/{{ board }}/'</a>, {% endfor %}
+		<a href="/{{ boards[5][4] }}/" class="string">'/{{ boards[5][4] }}/'</a>]<br />
+	</div>
 </body>
 </html>
