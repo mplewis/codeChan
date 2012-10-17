@@ -3,19 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/static/codeChan.css" media="all">
 </head>
 <body>
-	from codeChan import ChanIndex, ChanThread<br />
-	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br />
-	thread = ChanThread({{ threadData[0][0] }})<br /><br />
-	thread.addOp({% if threadData[0][1] is defined %}subj="{{ threadData[0][1] }}" {% endif %}time='{{ threadData[0][2] }}', image='<a href="{{ threadData[0][3] }}">{{ threadData[0][3] }}</a>', text=\<br />
+	<span class="keyword">from</span> <span class="namespace">codeChan</span> <span class="keyword">import</span> ChanIndex, ChanThread<br />
+	{{ boardAbbr }} = ChanIndex(<a href="../" class="string">'{{ boardAbbr }}'</a>)<br />
+	thread = ChanThread(<span class="number">{{ threadData[0][0] }}</span>)<br /><br />
+	thread.addOp({% if threadData[0][1] is defined %}subj=<span class="string">'{{ threadData[0][1] }}'</span>
+	{% endif %}
+	time=<span class="string">'{{ threadData[0][2] }}'</span>,
+	{% if threadData[0][3] is defined %}
+		image=<span class="string">'<a href="{{ threadData[0][3] }}" class="string">{{ threadData[0][3] }}</a>'</span>,
+	{% endif %}
+	text=<span class="escapechar">\</span><br />
 	<div class="indent">
-		"""{{ threadData[0][4] }}""")
+		<span class="longstring">"""{{ threadData[0][4] }}"""</span>)
 	</div><br />
 	{% for post in threadData[1:] %}
-	thread.addPost(post=<a name="{{ post[0] }}" href="#{{ post[0] }}">{{ post[0] }}</a>, {% if post[1] is defined %}subj="{{ post[1] }}" {% endif %}time='{{ post[2] }}', text=\<br />
-	<div class="indent">"""{{ post[4] }}""")</div><br />
+	thread.addPost(post=<a name="{{ post[0] }}" href="#{{ post[0] }}" class="number">{{ post[0] }}</a>,
+	{% if post[1] is defined %}
+		subj=<span class="string">"{{ post[1] }}"</span>,
+	{% endif %}
+	time=<span class="string">'{{ post[2] }}'</span>,
+	{% if post[3] is defined %}
+		image=<span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span>,
+	{% endif %}
+	text=<span class="escapechar">\</span><br />
+	<div class="indent"><span class="longstring">"""{{ post[4] }}"""</span>)</div><br />
 	{% endfor %}
+	<br /><a href="../" class="keyword">return <span class="string">'{{ boardAbbr }}'</span></a><br /><br />
 </body>
 </html>

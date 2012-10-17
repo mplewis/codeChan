@@ -3,36 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/static/codeReddit.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/static/codeChan.css" media="all">
 </head>
 <body>
-	from codeChan import ChanIndex<br />
-	{{ boardAbbr }} = ChanIndex('{{ boardAbbr }}')<br /><br />
+	<span class="keyword">from</span> <span class="namespace">codeChan</span> <span class="keyword">import</span> ChanIndex<br />
+	{{ boardAbbr }} = ChanIndex(<a href="." class="string">'{{ boardAbbr }}'</a>)<br /><br />
 	{% for thread in indexData %}
 		{% if thread[0][1] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['subj'] = '{{ thread[0][1] }}'<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'subj'</span>] = <span class="string">'{{ thread[0][1] }}'</span><br />
 		{% endif %}
-		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['time'] = '{{ thread[0][2] }}'<br />
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'time'</span>] = <span class="string">'{{ thread[0][2] }}'</span><br />
 		{% if thread[0][3] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op']['image'] = '<a href="{{ thread[0][3] }}">{{ thread[0][3] }}</a>'<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'image'</span>] = <span class="string">'<a href="{{ thread[0][3] }}" class="string">{{ thread[0][3] }}</a>'</span><br />
 		{% endif %}
-		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op'] = """{{ thread[0][4] }}"""<br />
-		with {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['op'] as op:
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'text'</span>] = <span class="longstring">"""{{ thread[0][4] }}"""</span><br />
+		<span class="keyword">with</span> {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>] <span class="keyword">as</span> op:
 		{% for post in thread[1:] %}
-		<div class="indent">
-			{% if post[3] is defined %}
-				op['image'][{{ post[0] }}] = """<a href="{{ post[3] }}">{{ post[3] }}</a>"""<br />
-			{% endif %}
-			op['reply'][{{ post[0] }}] = """{{ post[4] }}"""<br />
-		</div>
+			<div class="indent">
+				{% if post[3] is defined %}
+					op[<span class="string">'image'</span>][<span class="number">{{ post[0] }}</span>] = <span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span><br />
+				{% endif %}
+				op[<span class="string">'reply'</span>][<span class="number"><a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a></span>] = <span class="longstring">"""{{ post[4] }}"""</span><br />
+			</div>
 		{% endfor %}
 		{% if thread[0][5] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['replies_omitted'] = {{ thread[0][5] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'replies_omitted'</span>] = {{ thread[0][5] }}<br />
 		{% endif %}
 		{% if thread[0][6] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/">{{ thread[0][0] }}</a>]['images_omitted'] = {{ thread[0][6] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'images_omitted'</span>] = {{ thread[0][6] }}<br />
 		{% endif %}
 		<br />
 	{% endfor %}
+	<br /><a href="../" class="keyword">return <span class="string">'home'</span></a><br /><br />
 </body>
 </html>

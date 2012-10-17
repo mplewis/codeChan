@@ -1,0 +1,42 @@
+/* this is straight out of codereddit.com */
+
+
+body {
+    font-family: Inconsolata, Bitstream Vera Sans Mono, DejaVu Sans Mono, Menlo, Mensch, Anonymous Pro, absolutely anything else, Courier New;
+}
+a {
+    color: #000000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.keyword {
+	font-weight: bold;
+	color: #007020;
+}
+
+.namespace {
+	font-weight: bold;
+	color: #0e84b5;
+}
+
+.string {
+	color: #4070a0;
+}
+
+.longstring {
+	color: #0A3866;
+}
+
+.number {
+	color: #40a070;
+}
+
+.escapechar {
+	color: #ff4400;
+}
+
+.indent {
+    padding-left: 40px;
+}
