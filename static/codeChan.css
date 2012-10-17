@@ -1,8 +1,7 @@
-/* this is straight out of codereddit.com */
-
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
 
 body {
-    font-family: Inconsolata, Bitstream Vera Sans Mono, DejaVu Sans Mono, Menlo, Mensch, Anonymous Pro, absolutely anything else, Courier New;
+    font-family: Source Code Pro, Courier New, sans-serif, Comic Sans MS;
 }
 a {
     color: #000000;
