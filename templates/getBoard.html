@@ -10,27 +10,27 @@
 	{{ boardAbbr }} = ChanIndex(<a href="." class="string">'/{{ boardAbbr }}/'</a>)<br /><br />
 	{% for thread in indexData %}
 		{% if thread[0][1] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'subj'</span>] = <span class="string">'{{ thread[0][1] }}'</span><br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>][<span class="string">'subj'</span>] = <span class="string">'{{ thread[0][1] }}'</span><br />
 		{% endif %}
-		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'time'</span>] = <span class="string">'{{ thread[0][2] }}'</span><br />
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>][<span class="string">'time'</span>] = <span class="string">'{{ thread[0][2] }}'</span><br />
 		{% if thread[0][3] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'image'</span>] = <span class="string">'<a href="{{ thread[0][3] }}" class="string">{{ thread[0][3] }}</a>'</span><br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>][<span class="string">'image'</span>] = <span class="string">'<a href="{{ thread[0][3] }}" class="string">{{ thread[0][3] }}</a>'</span><br />
 		{% endif %}
-		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>][<span class="string">'text'</span>] = <span class="longstring">"""{{ thread[0][4] }}"""</span><br />
-		<span class="keyword">with</span> {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'op'</span>] <span class="keyword">as</span> op:<br />
+		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>][<span class="string">'text'</span>] = <span class="longstring">"""{{ thread[0][4] }}"""</span><br />
+		<span class="keyword">with</span> {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>] <span class="keyword">as</span> op:<br />
 		<div class="indent">
 		{% for post in thread[1:] %}
 			{% if post[3] is defined %}
-				op[<span class="string">'image'</span>][<span class="number">{{ post[0] }}</span>] = <span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span><br />
+				op[<span class="string">'image'</span>][<a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a>] = <span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span><br />
 			{% endif %}
 			op[<span class="string">'reply'</span>][<span class="number"><a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a></span>] = <span class="longstring">"""{{ post[4] }}"""</span><br />
 		{% endfor %}
 		</div>
 		{% if thread[0][5] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'replies_omitted'</span>] = {{ thread[0][5] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'replies_omitted'</span>] = {{ thread[0][5] }}<br />
 		{% endif %}
 		{% if thread[0][6] is defined %}
-			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number"><span class="number">{{ thread[0][0] }}</span></a>][<span class="string">'images_omitted'</span>] = {{ thread[0][6] }}<br />
+			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'images_omitted'</span>] = {{ thread[0][6] }}<br />
 		{% endif %}
 		<br />
 	{% endfor %}

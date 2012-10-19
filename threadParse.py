@@ -1,10 +1,9 @@
 import urllib2
 import json
 import string
-
 from htmlParse import stripTags
-
 import sys
+import proxify
 # OrderedDict introduced in Python 2.7
 if sys.version_info[1] >= 7:
 	from collections import OrderedDict
@@ -23,6 +22,7 @@ else:
 
 def webToStr(url):
 	return urllib2.urlopen(url).read()
+	# return proxify.getProxiedUrlToStr(url)
 
 
 
