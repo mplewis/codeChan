@@ -2,7 +2,10 @@ import string
 import random
 import os
 
-dataDir = 'proxyData'
+# read yaml config: proxy data directory
+from loadConfig import loadConfig
+cfg = loadConfig()
+dataDir = cfg['proxy']['dataDir']
 
 # taken from http://stackoverflow.com/a/2257449
 # takes in: size (int)

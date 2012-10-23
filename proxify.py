@@ -2,10 +2,13 @@ from webToStr import webToStr
 import postgresIO
 import fileStrIO
 
-# import yaml stuff
-
-fnLen = 12
-fnExt = 'dat'
+# read yaml config: db conn info, filename length + extension
+from loadConfig import loadConfig
+cfg = loadConfig()
+db = cfg['database']['db']
+user = cfg['database']['user']
+fnLen = cfg['proxy']['dataFilenameLen']['dataFilenameLen']
+fnExt = cfg['proxy']['dataFilenameLen']['dataFileExt']
 
 # JSON representations of threads and indexes are exposed at the following URLs:
 #     http(s)://api.4chan.org/board/res/threadnumber.json

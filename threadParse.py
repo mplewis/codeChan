@@ -13,7 +13,10 @@ else:
 	# http://pypi.python.org/pypi/ordereddict/1.1
 	from ordereddict import OrderedDict
 
-maxProxyTime = 15
+# read yaml config: max proxy time
+from loadConfig import loadConfig
+cfg = loadConfig()
+maxProxyTime = cfg['proxy']['maxProxyTimeout']
 
 
 
