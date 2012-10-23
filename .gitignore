@@ -33,3 +33,9 @@ pip-log.txt
 # test files
 thread.json
 threadOD.dat
+
+# data files
+proxyData/*
+
+# web stuff
+static/favicon.ico
