@@ -1,0 +1,22 @@
+# RENAME ME TO config.yml TO START DOING FUN STUFF
+# PostgreSQL database connection details; will use the table 'codechan'
+database:
+    user: thomas_bangalter
+    db: homework
+# Flask server settings
+server:
+    # if develMode = True, Flask web server will serve to localhost only
+    #     for security purposes; turn off develMode to serve publicly
+    develMode: False
+    port: 9001
+# JSON proxy settings
+proxy:
+    # maxProxyTimeout: number of seconds before proxied data goes stale
+    maxProxyTimeout: 15
+    # dataDir: folder in which to store proxy data files
+    dataDir: proxyData
+    # dataFilenameLen: length of random filenames for data files
+    #     for example, dataFilenameLen = 8 --> 'D76A4EKB.whatever'
+    dataFilenameLen: 8
+    # dataFileExt: which extension goes on the end of proxy data files
+    dataFileExt: dat
