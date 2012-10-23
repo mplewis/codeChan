@@ -10,15 +10,17 @@ Go ahead: try it out at my [public codeChan server](http://chan.kesdev.com/)! (P
 dependencies: what do I need?
 =============================
 
-[Flask](http://pypi.python.org/pypi/Flask/0.9) web server: because [Jinja 2](http://jinja.pocoo.org/) loves you
-[psycopg2](http://pypi.python.org/pypi/psycopg2) (for proxying JSON data)
-[PostgreSQL](http://www.postgresql.org/) (for proxying JSON data)
-[PyYAML](http://pypi.python.org/pypi/PyYAML/3.10) (I think this comes built into Python 2.7)
+ * [Flask](http://pypi.python.org/pypi/Flask/0.9) web server: because [Jinja 2](http://jinja.pocoo.org/) loves you
+ * [psycopg2](http://pypi.python.org/pypi/psycopg2) (for proxying JSON data)
+ * [PostgreSQL](http://www.postgresql.org/) (for proxying JSON data)
+ * [PyYAML](http://pypi.python.org/pypi/PyYAML/3.10) (I think this comes built into Python 2.7)
 
 okay, so how do I get started?
 ==============================
 
-Configuration options can be found in `sampleConfig.yml`. **Make sure to copy this to `config.yml` so that your server actually runs!**
+Configuration options can be found in `sampleConfig.yml`.
+
+**Make sure to copy `sampleConfig.yml` to `config.yml` and change the database login so that your server actually runs!**
 
 To start a codeChan web server on port 9001:
     python codeChanServer.py
