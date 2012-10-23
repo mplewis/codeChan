@@ -24,7 +24,8 @@ Configuration options can be found in `sampleConfig.yml`.
 
 Next, **setup the postgres database.** Or else you'll just get 500 Internal Server Errors and that makes Flask sad. Try running the experimental script `sqlSetup.py`. It should walk you through the process just fine, but be careful - it's not fully tested.
 
-To start a codeChan web server on default port 9001:
+To start a codeChan web server on (default) port `9001`:
+
     python codeChanServer.py
 
 Your server will not serve publicly to the internet unless you turn off the `develMode` option in `config.yml`.
