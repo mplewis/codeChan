@@ -2,8 +2,7 @@ from webToStr import webToStr
 import postgresIO
 import fileStrIO
 
-user = 'mplewis'
-db = 'pytest'
+# import yaml stuff
 
 fnLen = 12
 fnExt = 'dat'

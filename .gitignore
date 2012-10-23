@@ -37,5 +37,8 @@ threadOD.dat
 # data files
 proxyData/*
 
+# individual server config files
+config.yml
+
 # web stuff
 static/favicon.ico

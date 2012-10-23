@@ -6,7 +6,7 @@ from htmlParse import stripTags
 import urllib2
 
 app = flask.Flask(__name__)
-app.debug = True
+app.debug = False
 
 boardList = [['a', 'c', 'w', 'm', 'cgl', 'cm', 'f', 'n', 'jp', 'vp'], ['v', 'vg', 'co', 'g', 'tv', 'k', 'o', 'an', 'tg', 'sp', 'sci', 'int'], ['i', 'po', 'p', 'ck', 'ic', 'wg', 'mu', 'fa', 'toy', '3', 'diy', 'wsg'], ['s', 'hc', 'hm', 'h', 'e', 'u', 'd', 'y', 't', 'hr', 'gif'], ['q', 'trv', 'fit', 'x', 'lit', 'adv', 'mlp'], ['b', 'r', 'r9k', 'pol', 'soc']]
 
@@ -41,6 +41,7 @@ def selectThread(board, threadNum):
 	return flask.render_template('getThread.html', boardAbbr = board, threadData = processedThread)
 
 if __name__ == '__main__':
-	#app.run(host = '0.0.0.0', port = 9001)
-	app.run(port = 9001)
+	app.run(host = '0.0.0.0', port = 9001)
+	# for debug mode:
+	#app.run(port = 9001)
 	app.add_url_rule('/favicon.ico', redirect_to = flask.url_for('static', filename='favicon.ico'))
