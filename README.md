@@ -22,12 +22,12 @@ Configuration options can be found in `sampleConfig.yml`.
 
 **Make sure to copy `sampleConfig.yml` to `config.yml` and change the database login so that your server actually runs!**
 
-To start a codeChan web server on port 9001:
+Next, **setup the postgres database.** Or else you'll just get 500 Internal Server Errors and that makes Flask sad. Try running the experimental script `sqlSetup.py`. It should walk you through the process just fine, but be careful - it's not fully tested.
+
+To start a codeChan web server on default port 9001:
     python codeChanServer.py
 
 Your server will not serve publicly to the internet unless you turn off the `develMode` option in `config.yml`.
-
-Also, make the postgres database. Or else you'll just get 500 Internal Server Errors and that makes Flask sad. More docs on that soon.
 
 other stuff for your reading pleasure
 =====================================
@@ -35,3 +35,8 @@ other stuff for your reading pleasure
 Now with support for proxying requests to 4chan. Hopefully this is a bit nicer to the 4chan API. It doesn't comply completely with requests yet - 4chan asks me to limit my server to one request a second - so be on your best behavior.
 
 Props to [codeReddit](http://www.codereddit.com/) for the fantastic idea and implementation.
+
+future plans
+============
+
+I'm going to try to get this to work with WSGI instead of being a standalone server so you can plug it right into your nginx or apache install.
