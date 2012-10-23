@@ -4,6 +4,7 @@ import string
 from htmlParse import stripTags
 import sys
 import proxify
+from webToStr import webToStr
 # OrderedDict introduced in Python 2.7
 if sys.version_info[1] >= 7:
 	from collections import OrderedDict
@@ -12,17 +13,7 @@ else:
 	# http://pypi.python.org/pypi/ordereddict/1.1
 	from ordereddict import OrderedDict
 
-
-
-# JSON representations of threads and indexes are exposed at the following URLs:
-#     http(s)://api.4chan.org/board/res/threadnumber.json
-#     http(s)://api.4chan.org/board/pagenumber.json (0 is main index)
-
-
-
-def webToStr(url):
-	return urllib2.urlopen(url).read()
-	# return proxify.getProxiedUrlToStr(url)
+maxProxyTime = 15
 
 
 
@@ -71,7 +62,8 @@ class Index(object):
 		return self.indexJsonUrl
 	def refresh(self):
 		self.updateJsonUrl()
-		self.jsonData = webToStr(self.indexJsonUrl)
+		#self.jsonData = webToStr(self.indexJsonUrl)
+		self.jsonData = proxify.getIndexJson(maxProxyTime, self.boardAbbr, self.pageNum)
 		self.indexData = json.loads(self.jsonData)
 		self.threadList = []
 		for threadData in self.indexData['threads']:
@@ -172,7 +164,8 @@ class Thread(object):
 		return self.threadJsonUrl
 	def refresh(self):
 		self.updateJsonUrl()
-		self.jsonData = webToStr(self.threadJsonUrl)
+		#self.jsonData = webToStr(self.threadJsonUrl)
+		self.jsonData = proxify.getThreadJson(maxProxyTime, self.boardAbbr, self.threadNum)
 		self.threadData = json.loads(self.jsonData)
 		
 	def getAllPosts(self):

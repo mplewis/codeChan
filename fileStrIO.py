@@ -28,7 +28,7 @@ def genUnusedFilename(length, extension):
 	filename = genRandomID(length) + '.' + extension
 	while fileExists(filename):
 		filename = genRandomID(length) + '.' + extension
-	return (filename, extension)
+	return filename
 
 # takes in: a string, a filename
 # writes string to dataDir/filename, overwriting current contents
@@ -43,7 +43,7 @@ def strToFile(string, filename):
 # returns: a string containing the contents of dataDir/filename
 def fileToStr(filename):
 	try:
-		with open(dataDir + '/' + filename, 'w') as f:
+		with open(dataDir + '/' + filename, 'r') as f:
 			return f.read()
 	except IOError, err:
 		raise err
