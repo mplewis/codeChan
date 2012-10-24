@@ -5,7 +5,7 @@ An idea shamelessly stolen from [codeReddit.com](http://www.codereddit.com/), wi
 
 codeChan reads in data from 4chan's JSON API and serves it back in the browser looking like *big chunks of Python code*.
 
-Go ahead: try it out at my [public codeChan server!](http://www.kesdev.com:9001/) (Pages update at most once every 20 seconds, so don't F5-bomb me, please.)
+Go ahead: try it out at my [public codeChan server!](http://chan.kesdev.com/) (Pages update at most once every 20 seconds, so don't F5-bomb me, please.)
 
 dependencies: what do I need?
 =============================
