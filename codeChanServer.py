@@ -1,19 +1,19 @@
 import os
 import sys
+import flask
+import threadParse
+import parseForWeb
+import urllib2
 from loadConfig import loadConfig
+from htmlParse import stripTags
+
 # make sure config file exists
 try:
 	cfg = loadConfig()
 except IOError, err:
 	print 'Error reading config file:', err
-	print '\t(Maybe you didn\'t copy sampleConfig.yml to config.yml?)'
+	print '    (Maybe you didn\'t copy sampleConfig.yml to config.yml?)'
 	sys.exit()
-
-import flask
-import threadParse
-import parseForWeb
-from htmlParse import stripTags
-import urllib2
 
 # read yaml config: server devel mode, port
 develMode = cfg['server']['develMode']
