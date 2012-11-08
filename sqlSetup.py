@@ -5,7 +5,7 @@ print ''
 print "Database setup script for codeChan"
 print ''
 print "THIS SCRIPT IS IN MEGA EXPERIMENTAL MODE."
-print "Don't come crying to me if it drops all your tables."
+print "Don't complain if it drops all your tables, and DOUBLE CHECK THE QUERIES."
 print "This script will use psycopg2 to do the following:"
 print "    * Connect to the PostgreSQL database you specify"
 print "    * Create a table called codechan with the following statement:"
@@ -17,6 +17,7 @@ print '''        CREATE TABLE codechan (
             filename:   varchar(32)
         );'''
 print "    * Commit changes and disconnect from the database"
+print "This script is NOT GUARANTEED SAFE. Use at your own risk!"
 print "PLEASE READ THE ABOVE CAREFULLY"
 print ''
 print "Do you understand the above and want to continue setting up your database?"

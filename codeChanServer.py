@@ -19,6 +19,8 @@ except IOError, err:
 develMode = cfg['server']['develMode']
 serverPort = cfg['server']['port']
 
+analyticsEnabled = cfg['server']['analytics']
+
 app = flask.Flask(__name__)
 app.debug = develMode
 
@@ -26,7 +28,10 @@ boardList = [['a', 'c', 'w', 'm', 'cgl', 'cm', 'f', 'n', 'jp', 'vp'], ['v', 'vg'
 
 @app.route('/')
 def index():
-	return flask.render_template('index.html', boards = boardList)
+	if analyticsEnabled:
+		return flask.render_template('index_analytics.html', boards = boardList)
+	else:
+		return flask.render_template('index.html', boards = boardList)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -40,7 +45,10 @@ def selectBoard(board):
 	except urllib2.HTTPError:
 		flask.abort(404)
 	processedIndex = parseForWeb.parseIndex(index)
-	return flask.render_template('getBoard.html', boardAbbr = board, indexData = processedIndex)
+	if analyticsEnabled:
+		return flask.render_template('getBoard_analytics.html', boardAbbr = board, indexData = processedIndex)
+	else:
+		return flask.render_template('getBoard.html', boardAbbr = board, indexData = processedIndex)
 
 @app.route('/<board>/<threadNum>/')
 def selectThread(board, threadNum):
