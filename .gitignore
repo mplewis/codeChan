@@ -42,3 +42,4 @@ config.yml
 
 # web stuff
 static/favicon.ico
+templates/*analytics.html

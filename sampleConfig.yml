@@ -9,6 +9,8 @@ server:
     #     for security purposes; turn off develMode to serve publicly
     develMode: False
     port: 9001
+    # enable or disable analytics templates (beta)
+    analytics: True
 # JSON proxy settings
 proxy:
     # maxProxyTimeout: number of seconds before proxied data goes stale
