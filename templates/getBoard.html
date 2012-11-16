@@ -20,12 +20,16 @@
 		{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>][<span class="string">'text'</span>] = <span class="longstring">"""{{ thread[0][4] }}"""</span><br />
 		<span class="keyword">with</span> {{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'op'</span>] <span class="keyword">as</span> op:<br />
 		<div class="indent">
-		{% for post in thread[1:] %}
-			{% if post[3] is defined %}
-				op[<span class="string">'image'</span>][<a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a>] = <span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span><br />
-			{% endif %}
-			op[<span class="string">'reply'</span>][<span class="number"><a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a></span>] = <span class="longstring">"""{{ post[4] }}"""</span><br />
-		{% endfor %}
+		{% if thread[1:] %}
+			{% for post in thread[1:] %}
+				{% if post[3] is defined %}
+					op[<span class="string">'image'</span>][<a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a>] = <span class="string">'<a href="{{ post[3] }}" class="string">{{ post[3] }}</a>'</span><br />
+				{% endif %}
+				op[<span class="string">'reply'</span>][<span class="number"><a href="./{{ thread[0][0] }}/#{{ post[0] }}" class="number">{{ post[0] }}</a></span>] = <span class="longstring">"""{{ post[4] }}"""</span><br />
+			{% endfor %}
+		{% else %}
+			<span class="keyword">pass</span>
+		{% endif %}
 		</div>
 		{% if thread[0][5] is defined %}
 			{{ boardAbbr }}[<a href="./{{ thread[0][0] }}/" class="number">{{ thread[0][0] }}</a>][<span class="string">'replies_omitted'</span>] = {{ thread[0][5] }}<br />
